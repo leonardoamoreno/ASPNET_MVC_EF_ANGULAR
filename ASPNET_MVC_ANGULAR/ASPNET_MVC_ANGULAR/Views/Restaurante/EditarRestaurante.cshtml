@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "EditarRestaurante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Restaurante</h2>
+<div ng-controller="restauranteEditarCtrl">
+
+    <form>
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="hidden" id="Id" ng-model="restaurante.RestauranteId">
+            <input type="text" class="form-control" id="Nome" required ng-model="restaurante.Nome">
+        </div>
+        <div class="form-group">
+
+            <button class="btn btn-danger" onclick="window.location='/Restaurante/'" data-toggle="tooltip">Cancelar</button>
+            <button class="btn btn-success" ng-click="EditaRestaurante(restaurante)" data-toggle="tooltip">Salvar</button>
+
+        </div>
+    </form>
+</div>
+

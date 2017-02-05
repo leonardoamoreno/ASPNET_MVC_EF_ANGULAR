@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pratos</h2>
+
+<div class="container" ng-controller="pratoCtrl">
+    <div class="row">
+        <button class="btn btn-success " onclick="window.location='Prato/CriarPrato'">Cadastrar novo Prato</button>
+    </div>
+    <br />
+    <div class="row">
+        <div>
+            <div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Restaurante</th>
+                        <th>Prato</th>
+                        <th>Preço</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                    <tr ng-repeat="prato in pratos">
+                        <td> {{prato.Restaurante.Nome}} </td>
+                        <td> {{prato.Nome}} </td>
+                        <td> {{prato.Preco | currency}}</td>
+
+                        <td>
+                            <a href="/Prato/EditarPrato?id={{prato.PratoId}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Editar</a>
+                            @*<button class="btn btn-warning" ng-click="EditaRestaurante(restaurante)" data-toggle="tooltip" title="Clique para Editar Restaurante">Editar</button>*@
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="DeletaPrato(prato)" data-toggle="tooltip" title="Clique para Deletar Prato">Excluir</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

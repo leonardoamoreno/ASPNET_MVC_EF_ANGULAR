@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Restaurantes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Restaurantes</h2>
+
+<div class="container" ng-controller="restauranteCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <fieldset class="form-inline">
+                <legend>Filtros</legend>
+                <form>
+
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" ng-model="restaurante.Nome">
+
+                    <button type="button" ng-click="NomeRestaurante(restaurante)" class="btn btn-primary ">Pesquisar</button>
+                    <button class="btn btn-success " onclick="window.location='Restaurante/CriarRestaurante'">Cadastrar novo restaurante</button>
+                </form>
+
+            </fieldset>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div>
+            <div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Nome</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="restaurante in restaurantes">
+                        <td> {{restaurante.Nome}} </td>
+                        <td>
+                            <a href="/Restaurante/EditarRestaurante?id={{restaurante.RestauranteId}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Editar</a>
+                            @*<button class="btn btn-warning" ng-click="EditaRestaurante(restaurante)" data-toggle="tooltip" title="Clique para Editar Restaurante">Editar</button>*@
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="DeletaRestaurante(restaurante)" data-toggle="tooltip" title="Clique para Deletar Restaurante">Excluir</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "EditarRestaurante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Pratos</h2>
+<div ng-controller="pratoEditarCtrl">
+
+    <form>
+        <div class="form-group">
+            <label for="Nome">Restaurantes</label>
+            <select ng-model="prato.RestauranteId"
+                    ng-options="prato.RestauranteId as prato.Nome for prato in ListaRestaurantes" material-select watch>
+                <option value="">Selecione um restaurante</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control" id="Nome" required ng-model="prato.Nome">
+            <label for="Preco">Preço (ex: 10,50)</label>
+            <input type="text" class="form-control" id="Preco" required ng-model="prato.Preco">
+
+        </div>
+        <div class="form-group">
+
+            <button class="btn btn-danger" onclick="window.location='/Prato'" data-toggle="tooltip">Cancelar</button>
+            <button class="btn btn-success" ng-click="EditaPrato(prato)" data-toggle="tooltip">Salvar</button>
+
+        </div>
+    </form>
+</div>
+
+
